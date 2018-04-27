@@ -1,17 +1,19 @@
 package com.dhanuka.customer.dhanuka.models;
 
+
 import java.util.List;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class PendingOrders {
+public class FlVisit {
 
     @SerializedName("success")
     @Expose
     private Boolean success;
     @SerializedName("data")
     @Expose
-    private List<PendingOrdersData> data = null;
+    private List<FlVisitData> data = null;
 
     public Boolean getSuccess() {
         return success;
@@ -21,11 +23,11 @@ public class PendingOrders {
         this.success = success;
     }
 
-    public List<PendingOrdersData> getData() {
+    public List<FlVisitData> getData() {
         return data;
     }
 
-    public void setData(List<PendingOrdersData> data) {
+    public void setData(List<FlVisitData> data) {
         this.data = data;
     }
 

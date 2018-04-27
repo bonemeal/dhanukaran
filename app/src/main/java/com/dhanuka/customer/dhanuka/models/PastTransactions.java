@@ -1,17 +1,18 @@
+
 package com.dhanuka.customer.dhanuka.models;
 
 import java.util.List;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Response {
+public class PastTransactions {
 
     @SerializedName("success")
     @Expose
     private Boolean success;
     @SerializedName("data")
     @Expose
-    private List<Response> data = null;
+    private List<PastTransactionData> data = null;
 
     public Boolean getSuccess() {
         return success;
@@ -21,11 +22,11 @@ public class Response {
         this.success = success;
     }
 
-    public List<Response> getData() {
+    public List<PastTransactionData> getData() {
         return data;
     }
 
-    public void setData(List<Response> data) {
+    public void setData(List<PastTransactionData> data) {
         this.data = data;
     }
 

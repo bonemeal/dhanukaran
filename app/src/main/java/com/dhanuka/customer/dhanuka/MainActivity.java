@@ -5,16 +5,15 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.dhanuka.customer.dhanuka.models.BaseResponse;
-import com.dhanuka.customer.dhanuka.models.Response;
+import com.dhanuka.customer.dhanuka.flvisit.FlVisitActivity;
+import com.dhanuka.customer.dhanuka.models.PendingOrders;
+import com.dhanuka.customer.dhanuka.pendingOrders.PendingOrdersActivity;
 import com.dhanuka.customer.dhanuka.retrofit.NetworkClient;
 
-import java.util.List;
-
-import butterknife.BindViews;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
@@ -23,44 +22,33 @@ import io.reactivex.schedulers.Schedulers;
 
 public class MainActivity extends AppCompatActivity {
 
-    @BindViews(R.id.hello)
-    TextView tv;
+    @BindView(R.id.bt_pending_orders)
+    Button bt_pending_orders;
+    @BindView(R.id.bt_fl_visit)
+    Button bt_fl_visit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
-        tv = (TextView) findViewById(R.id.hello) ;
-        tv.setOnClickListener(new View.OnClickListener() {
+//        tv = (TextView) findViewById(R.id.hello) ;
+
+        final Intent i = new Intent(this, PendingOrdersActivity.class);
+        final Intent i2 = new Intent(this, FlVisitActivity.class);
+
+
+        bt_pending_orders.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                NetworkClient.getConnectoApis(getBaseContext())
-                        .getClassAndAlbums()
-                        .subscribeOn(Schedulers.io())
-                        .observeOn(AndroidSchedulers.mainThread())
-                        .subscribe(new Observer<Response>() {
-                            @Override
-                            public void onSubscribe(Disposable d) {
+                startActivity(i);
 
-                            }
-
-                            @Override
-                            public void onNext(Response response) {
-                                Log.d("Test12345",response.toString());
-
-                            }
-
-                            @Override
-                            public void onError(Throwable e) {
-
-                            }
-
-                            @Override
-                            public void onComplete() {
-
-                            }
-                        });
+            }
+        });
+        bt_fl_visit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(i2);
 
             }
         });
