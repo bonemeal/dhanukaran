@@ -28,7 +28,7 @@ public class PastTransactionsActivity extends AppCompatActivity {
     @BindView(R.id.recycler_view)
     RecyclerView recyclerView;
 
-    private FlVisitAdapter mAdapter;
+    private PastTransactionsAdapter mAdapter;
     private List<PastTransactionData> data;
 
     @Override
