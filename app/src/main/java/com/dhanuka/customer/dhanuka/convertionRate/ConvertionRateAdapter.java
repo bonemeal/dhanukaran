@@ -26,7 +26,7 @@ public class ConvertionRateAdapter extends RecyclerView.Adapter<ConvertionRateAd
     @Override
     public int getItemViewType(int position) {
 
-        return R.layout.pending_orders_row;
+        return R.layout.convertion_rate_row;
 
     }
 
@@ -38,7 +38,7 @@ public class ConvertionRateAdapter extends RecyclerView.Adapter<ConvertionRateAd
         ViewHolder viewHolder = null;
 
         switch (viewType) {
-            case R.layout.pending_orders_row:
+            case R.layout.convertion_rate_row:
                 viewHolder = new ConvectionRateView(view);
                 break;
         }
@@ -62,12 +62,12 @@ public class ConvertionRateAdapter extends RecyclerView.Adapter<ConvertionRateAd
         notifyDataSetChanged();
     }
 
-    class ConvectionRateView extends ConvertionRateAdapter.ViewHolder implements View.OnClickListener {
+    class ConvectionRateView extends ViewHolder implements View.OnClickListener {
         @BindView(R.id.tv_product_code)
         TextView tv_product_code;
-        @BindView(R.id.tv_product_name)
+        @BindView(R.id.tv_brand_name)
         TextView tv_product_name;
-        @BindView(R.id.tv_pending_order_qty)
+        @BindView(R.id.tv_conversion_rate)
         TextView tv_pending_order_qty;
 
         public ConvectionRateView(View itemView) {
@@ -77,15 +77,15 @@ public class ConvertionRateAdapter extends RecyclerView.Adapter<ConvertionRateAd
         }
 
         public void onBind(ConvertionRateData data) {
-
+            tv_product_code.setText(data.getProductCode());
+            tv_product_name.setText(data.getBrandName());
+            tv_pending_order_qty.setText(data.getConversionRate());
         }
 
         @Override
         public void onClick(View view) {
         }
     }
-
-
     abstract class ViewHolder extends RecyclerView.ViewHolder {
 
 

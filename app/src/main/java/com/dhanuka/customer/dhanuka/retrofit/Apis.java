@@ -18,6 +18,6 @@ public interface Apis {
     Observable<FlVisit> getFlVisit(@Path("id") String idCustomer);
     @GET("/api/v1/customers/{id}/transactions/last3months")
     Observable<PastTransactions> getPastTransaction(@Path("id") String idCustomer);
-    @GET("/api/v1/customers/customer_id/conversionRate")
+    @GET("/api/v1/customers/{id}/conversionRate")
     Observable<ConvertionRate> getConversionRate(@Path("id") String idCustomer);
 }

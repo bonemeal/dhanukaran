@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.dhanuka.customer.dhanuka.PastTransactions.PastTransactionsActivity;
+import com.dhanuka.customer.dhanuka.convertionRate.ConvertionRateActivity;
 import com.dhanuka.customer.dhanuka.flvisit.FlVisitActivity;
 import com.dhanuka.customer.dhanuka.models.PastTransactions;
 import com.dhanuka.customer.dhanuka.models.PendingOrders;
@@ -30,6 +31,8 @@ public class MainActivity extends AppCompatActivity {
     Button bt_fl_visit;
     @BindView(R.id.bt_past_transactions)
     Button bt_past_transactions;
+    @BindView(R.id.bt_convertion_rate)
+    Button bt_convertion_rate;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
         final Intent i = new Intent(this, PendingOrdersActivity.class);
         final Intent i2 = new Intent(this, FlVisitActivity.class);
         final Intent i3 = new Intent(this, PastTransactionsActivity.class);
+        final Intent i4 = new Intent(this, ConvertionRateActivity.class);
 
 
         bt_pending_orders.setOnClickListener(new View.OnClickListener() {
@@ -61,6 +65,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(i3);
+
+            }
+        });
+        bt_convertion_rate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(i4);
 
             }
         });

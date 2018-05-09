@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:gravity="center"
     tools:context=".MainActivity">
     <Button
         android:layout_width="wrap_content"
@@ -21,5 +22,10 @@
         android:layout_height="wrap_content"
         android:id="@+id/bt_past_transactions"
         android:text="@string/past_transactions"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/bt_convertion_rate"
+        android:text="@string/convertion_rate"/>
 
 </LinearLayout>

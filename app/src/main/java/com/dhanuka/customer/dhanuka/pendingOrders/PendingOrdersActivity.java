@@ -35,7 +35,6 @@ public class PendingOrdersActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setTitle(R.string.pending_orders);
         setContentView(R.layout.activity_pending_orders);
-
         ButterKnife.bind(this);
         data=new ArrayList<>();
         final ProgressDialog dialog = ProgressDialog.show(this, "",
