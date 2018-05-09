@@ -26,7 +26,7 @@ public class PastTransactionsAdapter extends RecyclerView.Adapter<PastTransactio
     @Override
     public int getItemViewType(int position) {
 
-        return R.layout.pending_orders_row;
+        return R.layout.past_transactions_row;
 
     }
 
@@ -38,7 +38,7 @@ public class PastTransactionsAdapter extends RecyclerView.Adapter<PastTransactio
         ViewHolder viewHolder = null;
 
         switch (viewType) {
-            case R.layout.pending_orders_row:
+            case R.layout.past_transactions_row:
                 viewHolder = new PastTransactionView(view);
                 break;
         }
@@ -66,8 +66,22 @@ public class PastTransactionsAdapter extends RecyclerView.Adapter<PastTransactio
         TextView tv_product_code;
         @BindView(R.id.tv_product_name)
         TextView tv_product_name;
-        @BindView(R.id.tv_pending_order_qty)
-        TextView tv_pending_order_qty;
+        @BindView(R.id.tv_product_code_qty)
+        TextView tv_product_code_qty;
+        @BindView(R.id.tv_mrp)
+        TextView tv_mrp;
+        @BindView(R.id.tv_commitment_ammount)
+        TextView tv_commitment_ammount;
+        @BindView(R.id.tv_payed_on)
+        TextView tv_payed_on;
+        @BindView(R.id.tv_seller_name)
+        TextView tv_seller_name;
+        @BindView(R.id.tv_commitment_date)
+        TextView tv_commitment_date;
+        @BindView(R.id.tv_payed_ammount)
+        TextView tv_payed_ammount;
+        @BindView(R.id.tv_date_of_transaction)
+        TextView tv_date_of_transaction;
 
         public PastTransactionView(View itemView) {
             super(itemView);
@@ -75,8 +89,33 @@ public class PastTransactionsAdapter extends RecyclerView.Adapter<PastTransactio
             itemView.setOnClickListener(this);
         }
 
+//        public void onBind(PastTransactionData orders) {
+//            tv_commitment_ammount.setText("Amount: "+orders.getCommitmentAmmount());
+//            tv_commitment_date.setText("commitment date: "+orders.getCommitmentDate());
+//            tv_date_of_transaction.setText("date: "+orders.getDateOfTransaction());
+//            tv_mrp.setText("Mrp: "+orders.getMrp());
+//            tv_payed_ammount.setText("payed ammount: "+orders.getPayedAmmount());
+//            tv_payed_on.setText("payed on:"+orders.getPayedOn());
+//            tv_product_code.setText("code: "+orders.getProductCode());
+//            tv_product_name.setText(orders.getProductName());
+//            tv_seller_name.setText("seller name:"+orders.getSeller());
+//            tv_product_code_qty.setText(orders.getProductQuantity());
+//
+//
+//        }
+
         public void onBind(PastTransactionData orders) {
-//            tv_pending_order_qty.setText(orders.getVisitDatgit
+            tv_commitment_ammount.setText(orders.getCommitmentAmmount());
+            tv_commitment_date.setText(orders.getCommitmentDate());
+            tv_date_of_transaction.setText(orders.getDateOfTransaction());
+            tv_mrp.setText(orders.getMrp());
+            tv_payed_ammount.setText(orders.getPayedAmmount());
+            tv_payed_on.setText(orders.getPayedOn());
+            tv_product_code.setText(orders.getProductCode());
+            tv_product_name.setText(orders.getProductName());
+            tv_seller_name.setText(orders.getSeller());
+            tv_product_code_qty.setText(orders.getProductQuantity());
+
 
         }
 

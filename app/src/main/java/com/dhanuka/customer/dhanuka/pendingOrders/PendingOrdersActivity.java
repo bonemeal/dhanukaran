@@ -1,10 +1,12 @@
 package com.dhanuka.customer.dhanuka.pendingOrders;
 
+import android.app.ProgressDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.widget.Toast;
 
 import com.dhanuka.customer.dhanuka.R;
 import com.dhanuka.customer.dhanuka.models.PendingOrdersData;
@@ -36,9 +38,11 @@ public class PendingOrdersActivity extends AppCompatActivity {
 
         ButterKnife.bind(this);
         data=new ArrayList<>();
+        final ProgressDialog dialog = ProgressDialog.show(this, "",
+                "Loading. Please wait...", true);
 
         NetworkClient.getConnectoApis(getBaseContext())
-                .getPendingOrders()
+                .getPendingOrders("37758")
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Observer<PendingOrders>() {
@@ -50,11 +54,14 @@ public class PendingOrdersActivity extends AppCompatActivity {
                     @Override
                     public void onNext(PendingOrders response) {
                         mAdapter.updateData(response.getData());
+                        dialog.dismiss();
 
                     }
 
                     @Override
                     public void onError(Throwable e) {
+
+                        Toast.makeText(getParent(), "something went wrong", Toast.LENGTH_SHORT).show();
 
                     }
 

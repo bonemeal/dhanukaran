@@ -1,4 +1,4 @@
-package com.dhanuka.customer.dhanuka.flvisit;
+package com.dhanuka.customer.dhanuka.convertionRate;
 
 import android.app.ProgressDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -9,6 +9,9 @@ import android.support.v7.widget.RecyclerView;
 import android.widget.Toast;
 
 import com.dhanuka.customer.dhanuka.R;
+import com.dhanuka.customer.dhanuka.flvisit.FlVisitAdapter;
+import com.dhanuka.customer.dhanuka.models.ConvertionRate;
+import com.dhanuka.customer.dhanuka.models.ConvertionRateData;
 import com.dhanuka.customer.dhanuka.models.FlVisit;
 import com.dhanuka.customer.dhanuka.models.FlVisitData;
 import com.dhanuka.customer.dhanuka.retrofit.NetworkClient;
@@ -23,35 +26,35 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 
-public class FlVisitActivity extends AppCompatActivity {
+public class ConvertionRateActivity extends AppCompatActivity {
     @BindView(R.id.recycler_view)
     RecyclerView recyclerView;
 
-    private FlVisitAdapter mAdapter;
-    private List<FlVisitData> data;
+    private ConvertionRateAdapter mAdapter;
+    private List<ConvertionRateData> data;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setTitle(R.string.pending_orders);
-        setContentView(R.layout.activity_fl_visit);
+        setTitle(R.string.convertion_rate);
+        setContentView(R.layout.activity_convertion_rate);
         ButterKnife.bind(this);
         data=new ArrayList<>();
         final ProgressDialog dialog = ProgressDialog.show(this, "",
                 "Loading. Please wait...", true);
 
         NetworkClient.getConnectoApis(getBaseContext())
-                .getFlVisit("36240")
+                .getConversionRate("36240")
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Observer<FlVisit>() {
+                .subscribe(new Observer<ConvertionRate>() {
                     @Override
                     public void onSubscribe(Disposable d) {
 
                     }
 
                     @Override
-                    public void onNext(FlVisit response) {
+                    public void onNext(ConvertionRate response) {
                         mAdapter.updateData(response.getData());
                         dialog.dismiss();
 
@@ -69,7 +72,7 @@ public class FlVisitActivity extends AppCompatActivity {
                     }
                 });
 
-        mAdapter = new FlVisitAdapter(data);
+        mAdapter = new ConvertionRateAdapter(data);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());

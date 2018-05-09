@@ -8,7 +8,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.dhanuka.customer.dhanuka.PastTransactions.PastTransactionsActivity;
 import com.dhanuka.customer.dhanuka.flvisit.FlVisitActivity;
+import com.dhanuka.customer.dhanuka.models.PastTransactions;
 import com.dhanuka.customer.dhanuka.models.PendingOrders;
 import com.dhanuka.customer.dhanuka.pendingOrders.PendingOrdersActivity;
 import com.dhanuka.customer.dhanuka.retrofit.NetworkClient;
@@ -26,6 +28,8 @@ public class MainActivity extends AppCompatActivity {
     Button bt_pending_orders;
     @BindView(R.id.bt_fl_visit)
     Button bt_fl_visit;
+    @BindView(R.id.bt_past_transactions)
+    Button bt_past_transactions;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
 
         final Intent i = new Intent(this, PendingOrdersActivity.class);
         final Intent i2 = new Intent(this, FlVisitActivity.class);
+        final Intent i3 = new Intent(this, PastTransactionsActivity.class);
 
 
         bt_pending_orders.setOnClickListener(new View.OnClickListener() {
@@ -49,6 +54,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(i2);
+
+            }
+        });
+        bt_past_transactions.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(i3);
 
             }
         });

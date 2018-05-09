@@ -2,4 +2,6 @@
     <string name="app_name">Dhanuka</string>
     <string name="pending_orders">Pending Orders</string>
     <string name="fl_visit">Fl Visit</string>
+    <string name="past_transactions">Past Transactions</string>
+    <string name="convertion_rate">Convertion Rate</string>
 </resources>

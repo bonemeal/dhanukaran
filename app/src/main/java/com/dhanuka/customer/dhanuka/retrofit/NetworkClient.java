@@ -54,7 +54,7 @@ public class NetworkClient {
 
         OkHttpClient client = httpClient.build();
         retrofit = new Retrofit.Builder()
-                .baseUrl(Constants.REQUEST_HEADER_SHORT1)
+                .baseUrl(Constants.REQUEST_HEADER_SHORT)
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();

@@ -20,7 +20,8 @@
         </activity>
         <activity android:name=".pendingOrders.PendingOrdersActivity" />
         <activity android:name=".flvisit.FlVisitActivity" />
-        <activity android:name=".PastTransactions.PastTransactionsActivity"></activity>
+        <activity android:name=".PastTransactions.PastTransactionsActivity" />
+        <activity android:name=".convertionRate.ConvertionRateActivity"></activity>
     </application>
 
 </manifest>
