@@ -1,4 +1,4 @@
-package com.dhanuka.customer.dhanuka.convertionRate;
+package com.dhanuka.customer.dhanuka.brandAdditions;
 
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
@@ -8,17 +8,17 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.dhanuka.customer.dhanuka.R;
-import com.dhanuka.customer.dhanuka.models.ConvertionRateData;
+import com.dhanuka.customer.dhanuka.models.BrandAdditionData;
 
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class ConvertionRateAdapter extends RecyclerView.Adapter<ConvertionRateAdapter.ViewHolder> {
-    List<ConvertionRateData> data;
+public class BrandAdditionsAdapter extends RecyclerView.Adapter<BrandAdditionsAdapter.ViewHolder> {
+    List<BrandAdditionData> data;
 
-    public ConvertionRateAdapter(List<ConvertionRateData> data) {
+    public BrandAdditionsAdapter(List<BrandAdditionData> data) {
         this.data = data;
     }
 
@@ -26,7 +26,7 @@ public class ConvertionRateAdapter extends RecyclerView.Adapter<ConvertionRateAd
     @Override
     public int getItemViewType(int position) {
 
-        return R.layout.convertion_rate_row;
+        return R.layout.brand_additions_row;
 
     }
 
@@ -38,8 +38,8 @@ public class ConvertionRateAdapter extends RecyclerView.Adapter<ConvertionRateAd
         ViewHolder viewHolder = null;
 
         switch (viewType) {
-            case R.layout.convertion_rate_row:
-                viewHolder = new ConvectionRateView(view);
+            case R.layout.brand_additions_row:
+                viewHolder = new BrandAdditionView(view);
                 break;
         }
         return viewHolder;
@@ -48,7 +48,7 @@ public class ConvertionRateAdapter extends RecyclerView.Adapter<ConvertionRateAd
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
-        ((ConvectionRateView) holder).onBind(data.get(position));
+        ((BrandAdditionView) holder).onBind(data.get(position));
 
     }
 
@@ -56,37 +56,35 @@ public class ConvertionRateAdapter extends RecyclerView.Adapter<ConvertionRateAd
     public int getItemCount() {
         return data.size();
     }
-
-    public void updateData(List<ConvertionRateData> data) {
+    public void updateData(List<BrandAdditionData> data){
         this.data.addAll(data);
         notifyDataSetChanged();
     }
 
-    class ConvectionRateView extends ViewHolder implements View.OnClickListener {
-        @BindView(R.id.tv_date)
-        TextView tv_date;
-        @BindView(R.id.tv_suggested_quantity)
-        TextView tv_suggested_quantity;
-        @BindView(R.id.tv_ordered_quantity)
-        TextView tv_ordered_quantity;
+    class BrandAdditionView extends BrandAdditionsAdapter.ViewHolder implements View.OnClickListener {
+        @BindView(R.id.tv_current_year)
+        TextView tv_current_year;
+        @BindView(R.id.tv_past_year)
+        TextView tv_past_year;
 
-        public ConvectionRateView(View itemView) {
+        public BrandAdditionView(View itemView) {
             super(itemView);
-            ButterKnife.bind(this, itemView);
+            ButterKnife.bind(this,itemView);
             itemView.setOnClickListener(this);
         }
 
-        public void onBind(ConvertionRateData data) {
+        public void onBind(BrandAdditionData data) {
+            tv_past_year.setText(data.getCountOfBrandLastYear()+"");
+            tv_current_year.setText(data.getCountOfBrandCurrentYear()+"");
 
-            tv_date.setText(data.getDate());
-            tv_suggested_quantity.setText(data.getSuggestedQuantity());
-            tv_ordered_quantity.setText(data.getOrderedQuantity());
         }
 
         @Override
         public void onClick(View view) {
         }
     }
+
+
     abstract class ViewHolder extends RecyclerView.ViewHolder {
 
 

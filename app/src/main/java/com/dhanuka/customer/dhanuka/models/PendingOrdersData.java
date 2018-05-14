@@ -4,40 +4,31 @@ package com.dhanuka.customer.dhanuka.models;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.util.List;
+
 public class PendingOrdersData {
 
-    @SerializedName("product_code")
+    @SerializedName("brandName")
     @Expose
-    private String productCode;
-    @SerializedName("product_name")
+    private String brandName;
+    @SerializedName("products")
     @Expose
-    private String productName;
-    @SerializedName("pending_order_qty")
-    @Expose
-    private String pendingOrderQty;
+    private List<PendingOrdersProduct> products = null;
 
-    public String getProductCode() {
-        return productCode;
+    public String getBrandName() {
+        return brandName;
     }
 
-    public void setProductCode(String productCode) {
-        this.productCode = productCode;
+    public void setBrandName(String brandName) {
+        this.brandName = brandName;
     }
 
-    public String getProductName() {
-        return productName;
+    public List<PendingOrdersProduct> getProducts() {
+        return products;
     }
 
-    public void setProductName(String productName) {
-        this.productName = productName;
-    }
-
-    public String getPendingOrderQty() {
-        return pendingOrderQty;
-    }
-
-    public void setPendingOrderQty(String pendingOrderQty) {
-        this.pendingOrderQty = pendingOrderQty;
+    public void setProducts(List<PendingOrdersProduct> products) {
+        this.products = products;
     }
 
 }

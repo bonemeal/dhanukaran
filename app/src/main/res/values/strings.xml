@@ -4,4 +4,6 @@
     <string name="fl_visit">Fl Visit</string>
     <string name="past_transactions">Past Transactions</string>
     <string name="convertion_rate">Convertion Rate</string>
+    <string name="brand_addition">Brand Addition</string>
+    <string name="pending_issues">Pending Issues</string>
 </resources>

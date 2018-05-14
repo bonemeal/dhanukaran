@@ -5,38 +5,38 @@ import com.google.gson.annotations.SerializedName;
 
 public class ConvertionRateData {
 
-    @SerializedName("brand_name")
+    @SerializedName("suggested_quantity")
     @Expose
-    private String brandName;
-    @SerializedName("product_code")
+    private String suggestedQuantity;
+    @SerializedName("ordered_quantity")
     @Expose
-    private String productCode;
-    @SerializedName("conversion_rate")
+    private String orderedQuantity;
+    @SerializedName("date")
     @Expose
-    private String conversionRate;
+    private String date;
 
-    public String getBrandName() {
-        return brandName;
+    public String getSuggestedQuantity() {
+        return suggestedQuantity;
     }
 
-    public void setBrandName(String brandName) {
-        this.brandName = brandName;
+    public void setSuggestedQuantity(String suggestedQuantity) {
+        this.suggestedQuantity = suggestedQuantity;
     }
 
-    public String getProductCode() {
-        return productCode;
+    public String getOrderedQuantity() {
+        return orderedQuantity;
     }
 
-    public void setProductCode(String productCode) {
-        this.productCode = productCode;
+    public void setOrderedQuantity(String orderedQuantity) {
+        this.orderedQuantity = orderedQuantity;
     }
 
-    public String getConversionRate() {
-        return conversionRate;
+    public String getDate() {
+        return date;
     }
 
-    public void setConversionRate(String conversionRate) {
-        this.conversionRate = conversionRate;
+    public void setDate(String date) {
+        this.date = date;
     }
 
 }

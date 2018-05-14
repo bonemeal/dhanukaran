@@ -1,15 +1,22 @@
 package com.dhanuka.customer.dhanuka.pendingOrders;
 
+import android.content.Context;
+import android.content.Intent;
+import android.os.Parcelable;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.dhanuka.customer.dhanuka.R;
 import com.dhanuka.customer.dhanuka.models.PendingOrdersData;
+import com.dhanuka.customer.dhanuka.models.PendingOrdersProduct;
 
+import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
@@ -17,8 +24,9 @@ import butterknife.ButterKnife;
 
 public class PendingOrdersAdapter extends RecyclerView.Adapter<PendingOrdersAdapter.ViewHolder> {
     List<PendingOrdersData> data;
-
-    public PendingOrdersAdapter(List<PendingOrdersData> data) {
+    Context context;
+    public PendingOrdersAdapter(List<PendingOrdersData> data, Context context) {
+        this.context=context;
         this.data = data;
     }
 
@@ -47,6 +55,12 @@ public class PendingOrdersAdapter extends RecyclerView.Adapter<PendingOrdersAdap
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
 
         ((PendingOrderView) holder).onBind(data.get(position));
 
@@ -68,6 +82,8 @@ public class PendingOrdersAdapter extends RecyclerView.Adapter<PendingOrdersAdap
         TextView tv_product_name;
         @BindView(R.id.tv_pending_order_qty)
         TextView tv_pending_order_qty;
+        PendingOrdersData orders;
+
 
         public PendingOrderView(View itemView) {
             super(itemView);
@@ -76,14 +92,16 @@ public class PendingOrdersAdapter extends RecyclerView.Adapter<PendingOrdersAdap
         }
 
         public void onBind(PendingOrdersData orders) {
-            tv_pending_order_qty.setText(orders.getPendingOrderQty());
-            tv_product_code.setText(orders.getProductCode());
-            tv_product_name.setText(orders.getProductName());
+            this.orders=orders;
+            tv_product_name.setText(orders.getBrandName()+"");
+            tv_pending_order_qty.setText(orders.getProducts().size()+"");
+
 
         }
 
         @Override
         public void onClick(View view) {
+
         }
     }
 

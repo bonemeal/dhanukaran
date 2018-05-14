@@ -26,7 +26,6 @@ import io.reactivex.schedulers.Schedulers;
 public class FlVisitActivity extends AppCompatActivity {
     @BindView(R.id.recycler_view)
     RecyclerView recyclerView;
-
     private FlVisitAdapter mAdapter;
     private List<FlVisitData> data;
 
@@ -39,7 +38,6 @@ public class FlVisitActivity extends AppCompatActivity {
         data=new ArrayList<>();
         final ProgressDialog dialog = ProgressDialog.show(this, "",
                 "Loading. Please wait...", true);
-
         NetworkClient.getConnectoApis(getBaseContext())
                 .getFlVisit("36240")
                 .subscribeOn(Schedulers.io())

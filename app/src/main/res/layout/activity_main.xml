@@ -7,13 +7,21 @@
     android:orientation="vertical"
     android:gravity="center"
     tools:context=".MainActivity">
-    <Button
+    <LinearLayout
         android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:orientation="vertical"
+        >
+
+    <Button
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/bt_pending_orders"
         android:text="@string/pending_orders"/>
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/bt_fl_visit"
         android:text="@string/fl_visit"/>
@@ -23,9 +31,20 @@
         android:id="@+id/bt_past_transactions"
         android:text="@string/past_transactions"/>
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/bt_convertion_rate"
         android:text="@string/convertion_rate"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/bt_brand_addition"
+        android:text="@string/brand_addition"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/bt_pending_isssues"
+        android:text="@string/pending_issues"/>
+    </LinearLayout>
 
 </LinearLayout>
