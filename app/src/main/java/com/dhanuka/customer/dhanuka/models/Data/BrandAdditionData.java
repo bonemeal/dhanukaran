@@ -1,4 +1,4 @@
-package com.dhanuka.customer.dhanuka.models;
+package com.dhanuka.customer.dhanuka.models.Data;
 
 
 import com.google.gson.annotations.Expose;

@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.dhanuka.customer.dhanuka.R;
-import com.dhanuka.customer.dhanuka.models.BrandAdditionData;
+import com.dhanuka.customer.dhanuka.models.Data.BrandAdditionData;
 
 import java.util.List;
 
@@ -66,6 +66,8 @@ public class BrandAdditionsAdapter extends RecyclerView.Adapter<BrandAdditionsAd
         TextView tv_current_year;
         @BindView(R.id.tv_past_year)
         TextView tv_past_year;
+        @BindView(R.id.tv_customer_code)
+        TextView tv_customer_code;
 
         public BrandAdditionView(View itemView) {
             super(itemView);
@@ -76,6 +78,7 @@ public class BrandAdditionsAdapter extends RecyclerView.Adapter<BrandAdditionsAd
         public void onBind(BrandAdditionData data) {
             tv_past_year.setText(data.getCountOfBrandLastYear()+"");
             tv_current_year.setText(data.getCountOfBrandCurrentYear()+"");
+            tv_customer_code.setText(data.getOutletAccount()+"");
 
         }
 

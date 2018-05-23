@@ -8,8 +8,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.dhanuka.customer.dhanuka.R;
-import com.dhanuka.customer.dhanuka.models.FlVisitData;
-import com.dhanuka.customer.dhanuka.models.PendingOrdersData;
+import com.dhanuka.customer.dhanuka.models.Data.FlVisitData;
 
 import java.util.List;
 

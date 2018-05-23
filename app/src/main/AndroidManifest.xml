@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.dhanuka.customer.dhanuka">
 
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
@@ -20,11 +21,15 @@
         </activity>
         <activity android:name=".pendingOrders.PendingOrdersActivity" />
         <activity android:name=".flvisit.FlVisitActivity" />
-        <activity android:name=".PastTransactions.PastTransactionsActivity" />
+        <activity android:name=".pastTransactions.PastTransactionsActivity" />
         <activity android:name=".convertionRate.ConvertionRateActivity" />
         <activity android:name=".brandAdditions.BrandAdditionsActivity" />
         <activity android:name=".pendingIssues.PendingIssuesActivity" />
-        <activity android:name=".pendingOrders.PendingOrdersProductActivity"></activity>
+        <activity android:name=".pendingOrders.PendingOrdersProductActivity" />
+        <activity android:name=".customerOutstanding.CustomerOutstandingActivity" />
+        <activity android:name=".paymentCommitment.PaymentCommitmentActivity" />
+        <activity android:name=".paymentAdherence.PaymentAdherenceActivity" />
+        <activity android:name=".incentives.IncentivesActivity"></activity>
     </application>
 
 </manifest>

@@ -33,6 +33,12 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textSize="11sp"
+        android:id="@+id/bt_customer_outstanding"
+        android:text="@string/customer_outstanding"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:id="@+id/bt_convertion_rate"
         android:text="@string/convertion_rate"/>
     <Button
@@ -45,6 +51,24 @@
         android:layout_height="wrap_content"
         android:id="@+id/bt_pending_isssues"
         android:text="@string/pending_issues"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/bt_payment_commitment"
+        android:textSize="11sp"
+        android:text="@string/payment_commitment"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/bt_payment_adherence"
+        android:textSize="11sp"
+        android:text="@string/payment_adherence"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/bt_incentives"
+        android:textSize="11sp"
+        android:text="@string/Incentive"/>
     </LinearLayout>
 
 </LinearLayout>

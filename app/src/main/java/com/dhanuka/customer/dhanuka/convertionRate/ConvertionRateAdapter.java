@@ -1,6 +1,9 @@
 package com.dhanuka.customer.dhanuka.convertionRate;
 
+import android.icu.text.SimpleDateFormat;
+import android.os.Build;
 import android.support.annotation.NonNull;
+import android.support.annotation.RequiresApi;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,9 +11,11 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.dhanuka.customer.dhanuka.R;
-import com.dhanuka.customer.dhanuka.models.ConvertionRateData;
+import com.dhanuka.customer.dhanuka.models.Data.ConvertionRateData;
 
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -45,6 +50,7 @@ public class ConvertionRateAdapter extends RecyclerView.Adapter<ConvertionRateAd
         return viewHolder;
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
@@ -76,11 +82,15 @@ public class ConvertionRateAdapter extends RecyclerView.Adapter<ConvertionRateAd
             itemView.setOnClickListener(this);
         }
 
+        @RequiresApi(api = Build.VERSION_CODES.N)
         public void onBind(ConvertionRateData data) {
+            SimpleDateFormat dateFormat = new SimpleDateFormat(
+                    "yyyy-MM-dd  HH:mm:ss", Locale.getDefault());
+            Date date = new Date();
 
-            tv_date.setText(data.getDate());
-            tv_suggested_quantity.setText(data.getSuggestedQuantity());
-            tv_ordered_quantity.setText(data.getOrderedQuantity());
+            tv_date.setText(dateFormat.format(date)+"");
+            tv_suggested_quantity.setText(data.getSuggestedQuantity()+"");
+            tv_ordered_quantity.setText(data.getOrderedQuantity()+"");
         }
 
         @Override

@@ -10,7 +10,7 @@ import android.widget.Toast;
 
 import com.dhanuka.customer.dhanuka.R;
 import com.dhanuka.customer.dhanuka.models.FlVisit;
-import com.dhanuka.customer.dhanuka.models.FlVisitData;
+import com.dhanuka.customer.dhanuka.models.Data.FlVisitData;
 import com.dhanuka.customer.dhanuka.retrofit.NetworkClient;
 
 import java.util.ArrayList;

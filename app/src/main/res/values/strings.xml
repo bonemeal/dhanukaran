@@ -6,4 +6,9 @@
     <string name="convertion_rate">Convertion Rate</string>
     <string name="brand_addition">Brand Addition</string>
     <string name="pending_issues">Pending Issues</string>
+    <string name="product_info">Product Info</string>
+    <string name="customer_outstanding">Customer Outstanding</string>
+    <string name="payment_commitment">Payment Commitment</string>
+    <string name="payment_adherence">Payment Adherence</string>
+    <string name="Incentive">Incentive</string>
 </resources>

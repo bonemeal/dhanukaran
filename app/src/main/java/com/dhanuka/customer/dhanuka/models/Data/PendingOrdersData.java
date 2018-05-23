@@ -1,6 +1,7 @@
 
-package com.dhanuka.customer.dhanuka.models;
+package com.dhanuka.customer.dhanuka.models.Data;
 
+import com.dhanuka.customer.dhanuka.models.PendingOrdersProduct;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 

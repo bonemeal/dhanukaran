@@ -1,6 +1,8 @@
 package com.dhanuka.customer.dhanuka.models;
 
 import java.util.List;
+
+import com.dhanuka.customer.dhanuka.models.Data.PendingIssuesData;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 

@@ -14,7 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/title"
-        android:weightSum="2"
+        android:weightSum="3"
         android:orientation="horizontal">
 
         <TextView
@@ -37,12 +37,22 @@
             android:textSize="14dp"
             android:textStyle="bold" />
 
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:textColor="@color/title"
+            android:text="Customer Code"
+            android:textSize="14dp"
+            android:textStyle="bold" />
+
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/title"
-        android:weightSum="2"
+        android:weightSum="3"
         android:orientation="horizontal">
 
         <TextView
@@ -60,6 +70,16 @@
             android:gravity="center"
             android:layout_weight="1"
             android:id="@+id/tv_current_year"
+            android:textColor="@color/title"
+            android:textSize="14dp" />
+
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:id="@+id/tv_customer_code"
             android:textColor="@color/title"
             android:textSize="14dp" />
 

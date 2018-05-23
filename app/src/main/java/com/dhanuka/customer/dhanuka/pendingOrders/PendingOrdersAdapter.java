@@ -9,13 +9,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.dhanuka.customer.dhanuka.R;
-import com.dhanuka.customer.dhanuka.models.PendingOrdersData;
-import com.dhanuka.customer.dhanuka.models.PendingOrdersProduct;
+import com.dhanuka.customer.dhanuka.models.Data.PendingOrdersData;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -54,10 +51,15 @@ public class PendingOrdersAdapter extends RecyclerView.Adapter<PendingOrdersAdap
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent i = new Intent(context,PendingOrdersProductActivity.class);
+                i.putParcelableArrayListExtra("data", (ArrayList<? extends Parcelable>) data.get(position).getProducts());
+                i.putExtra("position", position);
+                context.startActivity((i));
+
 
             }
         });
@@ -95,7 +97,6 @@ public class PendingOrdersAdapter extends RecyclerView.Adapter<PendingOrdersAdap
             this.orders=orders;
             tv_product_name.setText(orders.getBrandName()+"");
             tv_pending_order_qty.setText(orders.getProducts().size()+"");
-
 
         }
 

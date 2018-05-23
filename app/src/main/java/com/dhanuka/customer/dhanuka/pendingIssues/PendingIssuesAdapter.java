@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.dhanuka.customer.dhanuka.R;
-import com.dhanuka.customer.dhanuka.models.PendingIssuesData;
+import com.dhanuka.customer.dhanuka.models.Data.PendingIssuesData;
 
 import java.util.List;
 
@@ -26,7 +26,7 @@ public class PendingIssuesAdapter extends RecyclerView.Adapter<PendingIssuesAdap
     @Override
     public int getItemViewType(int position) {
 
-        return R.layout.pending_orders_row;
+        return R.layout.pending_issues_row;
 
     }
 
@@ -38,7 +38,7 @@ public class PendingIssuesAdapter extends RecyclerView.Adapter<PendingIssuesAdap
         ViewHolder viewHolder = null;
 
         switch (viewType) {
-            case R.layout.pending_orders_row:
+            case R.layout.pending_issues_row:
                 viewHolder = new PendingIssuesView(view);
                 break;
         }

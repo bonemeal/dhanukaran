@@ -9,11 +9,8 @@ import android.support.v7.widget.RecyclerView;
 import android.widget.Toast;
 
 import com.dhanuka.customer.dhanuka.R;
-import com.dhanuka.customer.dhanuka.flvisit.FlVisitAdapter;
 import com.dhanuka.customer.dhanuka.models.ConvertionRate;
-import com.dhanuka.customer.dhanuka.models.ConvertionRateData;
-import com.dhanuka.customer.dhanuka.models.FlVisit;
-import com.dhanuka.customer.dhanuka.models.FlVisitData;
+import com.dhanuka.customer.dhanuka.models.Data.ConvertionRateData;
 import com.dhanuka.customer.dhanuka.retrofit.NetworkClient;
 
 import java.util.ArrayList;
@@ -44,7 +41,7 @@ public class ConvertionRateActivity extends AppCompatActivity {
                 "Loading. Please wait...", true);
 
         NetworkClient.getConnectoApis(getBaseContext())
-                .getConversionRate("36240")
+                .getConversionRate("37758")
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Observer<ConvertionRate>() {

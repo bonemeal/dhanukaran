@@ -1,6 +1,9 @@
-package com.dhanuka.customer.dhanuka.PastTransactions;
+package com.dhanuka.customer.dhanuka.pastTransactions;
 
+import android.icu.text.SimpleDateFormat;
+import android.os.Build;
 import android.support.annotation.NonNull;
+import android.support.annotation.RequiresApi;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,9 +11,11 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.dhanuka.customer.dhanuka.R;
-import com.dhanuka.customer.dhanuka.models.PastTransactionData;
+import com.dhanuka.customer.dhanuka.models.Data.PastTransactionData;
 
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -45,6 +50,7 @@ public class PastTransactionsAdapter extends RecyclerView.Adapter<PastTransactio
         return viewHolder;
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder , int position) {
 
@@ -62,26 +68,16 @@ public class PastTransactionsAdapter extends RecyclerView.Adapter<PastTransactio
     }
 
     class PastTransactionView extends PastTransactionsAdapter.ViewHolder implements View.OnClickListener {
-        @BindView(R.id.tv_product_code)
-        TextView tv_product_code;
-        @BindView(R.id.tv_product_name)
-        TextView tv_product_name;
-        @BindView(R.id.tv_product_code_qty)
-        TextView tv_product_code_qty;
-        @BindView(R.id.tv_mrp)
-        TextView tv_mrp;
-        @BindView(R.id.tv_commitment_ammount)
-        TextView tv_commitment_ammount;
-        @BindView(R.id.tv_payed_on)
-        TextView tv_payed_on;
-        @BindView(R.id.tv_seller_name)
-        TextView tv_seller_name;
-        @BindView(R.id.tv_commitment_date)
-        TextView tv_commitment_date;
-        @BindView(R.id.tv_payed_ammount)
-        TextView tv_payed_ammount;
-        @BindView(R.id.tv_date_of_transaction)
-        TextView tv_date_of_transaction;
+        @BindView(R.id.tv_customer_code)
+        TextView tv_customer_code;
+        @BindView(R.id.tv_date)
+        TextView tv_date;
+        @BindView(R.id.tv_document_type)
+        TextView tv_document_type;
+        @BindView(R.id.tv_document_no)
+        TextView tv_document_no;
+        @BindView(R.id.tv_ammount)
+        TextView tv_ammount ;
 
         public PastTransactionView(View itemView) {
             super(itemView);
@@ -104,17 +100,16 @@ public class PastTransactionsAdapter extends RecyclerView.Adapter<PastTransactio
 //
 //        }
 
+        @RequiresApi(api = Build.VERSION_CODES.N)
         public void onBind(PastTransactionData orders) {
-            tv_commitment_ammount.setText(orders.getCommitmentAmmount());
-            tv_commitment_date.setText(orders.getCommitmentDate());
-            tv_date_of_transaction.setText(orders.getDateOfTransaction());
-            tv_mrp.setText(orders.getMrp());
-            tv_payed_ammount.setText(orders.getPayedAmmount());
-            tv_payed_on.setText(orders.getPayedOn());
-            tv_product_code.setText(orders.getProductCode());
-            tv_product_name.setText(orders.getProductName());
-            tv_seller_name.setText(orders.getSeller());
-            tv_product_code_qty.setText(orders.getProductQuantity());
+            SimpleDateFormat dateFormat = new SimpleDateFormat(
+                    "yyyy-MM-dd  HH:mm:ss", Locale.getDefault());
+            Date date = new Date();
+            tv_customer_code.setText(orders.getCustomerCode());
+            tv_date.setText(dateFormat.format(date)+"");
+            tv_document_type.setText(orders.getDocumentType());
+            tv_document_no.setText(orders.getDocumentNo().toString());
+            tv_ammount.setText(orders.getAmount().toString());
 
 
         }
