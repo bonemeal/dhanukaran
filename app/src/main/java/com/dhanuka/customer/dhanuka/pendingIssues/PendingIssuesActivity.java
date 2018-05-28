@@ -13,7 +13,6 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 
 import com.dhanuka.customer.dhanuka.R;
-import com.dhanuka.customer.dhanuka.db.DBHelper;
 import com.dhanuka.customer.dhanuka.db.DhanukaDb;
 import com.dhanuka.customer.dhanuka.db.doa.PendingIssuesDoa;
 import com.dhanuka.customer.dhanuka.models.PendingIssues;
@@ -36,7 +35,6 @@ public class PendingIssuesActivity extends AppCompatActivity {
     private PendingIssuesAdapter mAdapter;
     private List<PendingIssuesData> data;
     PendingIssuesDoa pendingIssuesDoa;
-    DBHelper myDB;
     private boolean isNetworkConnected() {
         ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
 
@@ -50,7 +48,6 @@ public class PendingIssuesActivity extends AppCompatActivity {
         setContentView(R.layout.activity_pending_issues);
         ButterKnife.bind(this);
 
-        myDB = new DBHelper(this);
 
         DhanukaDb dhanukaDb= new DhanukaDb(this);
         pendingIssuesDoa=new PendingIssuesDoa(dhanukaDb);

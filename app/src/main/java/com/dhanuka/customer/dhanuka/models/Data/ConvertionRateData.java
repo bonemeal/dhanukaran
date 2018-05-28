@@ -5,15 +5,26 @@ import com.google.gson.annotations.SerializedName;
 
 public class ConvertionRateData {
 
+    @SerializedName("customer_code")
+    @Expose
+    private String customerCode;
     @SerializedName("suggested_quantity")
     @Expose
     private Integer suggestedQuantity;
     @SerializedName("ordered_quantity")
     @Expose
     private Integer orderedQuantity;
-    @SerializedName("date")
+    @SerializedName("date_field")
     @Expose
-    private String date;
+    private String dateField;
+
+    public String getCustomerCode() {
+        return customerCode;
+    }
+
+    public void setCustomerCode(String customerCode) {
+        this.customerCode = customerCode;
+    }
 
     public Integer getSuggestedQuantity() {
         return suggestedQuantity;
@@ -31,12 +42,13 @@ public class ConvertionRateData {
         this.orderedQuantity = orderedQuantity;
     }
 
-    public String getDate() {
-        return date;
+    public String getDateField() {
+        return dateField;
     }
 
-    public void setDate(String date) {
-        this.date = date;
+    public void setDateField(String dateField) {
+        this.dateField = dateField;
     }
+
 
 }
